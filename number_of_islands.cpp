@@ -5,7 +5,7 @@ Problem: Number of Islands
 Below you will find 2 implementations:
 1. Implentation 1 is a DFS in place of the array. It is much more efficient.
 2. Implementation 2 is a DFS where I rip the graph out, and recreate it using
-nodes on the heap, for practice. 
+dynamic memory nodes.
 
 */
 
@@ -15,6 +15,8 @@ nodes on the heap, for practice.
 #include <sstream>
 #include <unordered_map>
 using namespace std;
+
+/*
 struct Node {
 	int row;
 	int column;
@@ -77,8 +79,39 @@ int numIslands(vector< vector<char> >& grid) {
 	}
 	return count;
 }
+*/
 
+void connectedOnesToZero(int i, int j, vector< vector<char> >* grid) {
+	//Note: (*grid)[i][j] == '0' must be at the end of the condition tests 
+	//due to the fact that it may try to access an unallocated memory location
+	//if the values of i and/or j are invalid (i.e. the other conditions being satisfied).
+	//Since C++ uses short-circuiting, it tests the  conditions in order and if
+	//one condition is satisfied (for 'or') the rest are not tested.
+	//Hence, if (*grid)[i][j] == '0' were placed at the end, it will only be tested/
+	//memory location accessed if it exists (values of i and j are not
+	//invalid, meaning the other conditions don't return true/satsified).
+	if (i < 0 || j < 0 || i >= (*grid).size() || j >= (*grid)[i].size() || (*grid)[i][j] == '0') {
+		return;
+	}
+	(*grid)[i][j] = '0';
 
+	connectedOnesToZero(i-1, j, grid);
+	connectedOnesToZero(i+1, j, grid);
+	connectedOnesToZero(i, j-1, grid);
+	connectedOnesToZero(i, j+1, grid);
+}
+int numIslands(vector< vector<char> >& grid) {
+	int numberOfIslands = 0;
+	for (int i = 0; i < grid.size(); i++) {
+		for (int j = 0; j < grid[i].size(); j++) {
+			if (grid[i][j] == '1') {
+				numberOfIslands++;
+				connectedOnesToZero(i, j, &grid);
+			}
+		}
+	}
+	return numberOfIslands;
+}
 
 int main() {
 	vector < vector<char> > temp1;
