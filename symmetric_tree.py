@@ -58,12 +58,34 @@ class Solution(object):
         return outerSymmetry and innerSymmetry
 
 
+# Iterative solution using a stack
+
+# class Solution(object):
+#     def isSymmetric(self, root):
+#         """
+#         :type root: TreeNode
+#         :rtype: bool
+#         """
+#         if root is None:
+#             return True
+
+#         stack = [root.left, root.right]
+
+#         while len(stack) != 0:
+#             mirroredPair = (stack.pop(), stack.pop())
+#             if mirroredPair[0] is None and mirroredPair[1] is None:
+#                 continue
+#             else:
+#                 if (mirroredPair[0] is None and mirroredPair[1] is not None) \
+#                 or (mirroredPair[0] is not None and mirroredPair[1] is None):
+#                     return False
+#                 elif mirroredPair[0].val != mirroredPair[1].val:
+#                     return False
+#                 stack.append(mirroredPair[0].right)
+#                 stack.append(mirroredPair[1].left)
+#                 stack.append(mirroredPair[0].left)
+#                 stack.append(mirroredPair[0].right)
+#         return True
 
 
-class Solution(object):
-    def isSymmetric(self, root):
-        """
-        :type root: TreeNode
-        :rtype: bool
-        """
         
