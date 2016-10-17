@@ -25,10 +25,10 @@
 # Have a while loop that iterates both num1 and num2 from LSD to MSD
 # at the same time, 'adding' each corresponding digits. Append
 # partial sums to resultant string as needed. Note that string appending
-# is quadratic. 
+# is quadratic.
 
 # ANALYSIS:
-# Let n = maxLen(num1, num2). Assuming string appending is n, 
+# Let n = maxLen(num1, num2). Assuming string appending is n,
 # this is O(n).
 
 
@@ -39,6 +39,26 @@ class Solution(object):
         :type num2: str
         :rtype: str
         """
-        
-        res = "sd"
-        
+        index = 0
+        carry = 0
+        res = ""
+        while (index < max(len(num1), len(num2))):
+            if ((index >= len(num1)) or (index >= len(num2))):
+                if index >= len(num1):
+                    int2 = ord(num2[len(num2) -1 - index]) - ord('0')
+                    int1 = 0
+                else:
+                    int1 = ord(num1[len(num1) -1 - index]) - ord('0')
+                    int2 = 0
+            else:
+                int1 = ord(num1[len(num1) -1 - index]) - ord('0')
+                int2 = ord(num2[len(num2) -1 - index]) - ord('0')
+            intSum = int1 + int2 + carry
+            carry = 1 if intSum > 9 else 0
+            digit = intSum % 10
+            charDigit = chr(digit + ord('0'))
+            res = charDigit + res
+            index += 1
+        if carry == 1:
+            res = "1" + res
+        return res
