@@ -19,56 +19,93 @@
 # Find max # of matchings for f.
 
 # CATEGORIZE:
-# matching, math, reasoning
+# reasoning, sorting, greedy
 
 # REASONING:
-# The best match is where ci == gi (not potentially wasting a larger
-# cookie which could be used on another kid and it is a valid match)
 
-# The second best match is where ci - 1 == gi (not optimal assignment
-# of cookie to kid since ci could be used on smaller greed kids)
+# Ok, let's say we have a greed gi.
+# Let's run through our matching options.
+# Assume we have cookies ch, ci, and cj, such that
+# ch < ci == gi < cj. (cj is any bigger cookie and ch is any smaller cookie)
 
-# ci - 2 == gi (this cookie could satisfy even more matches! too good
-# for it?)
-# ...until...
-# assign largest ci to a greed gi -- assign the best cookie possible
-# to this greed?
+# ch is impossible since we can't match a lower tiered cookie to a higher
+# greed.
 
-# Alright, so now we figured out that some cookies have more "potential"
-# or use than others. 
+# We can match gi with ci or cj.
 
-# However, consider the case where we have a cookie cj
-# and a greed gi < gj == cj.
+# 1. If both ci and cj exist:
 
-# Now should we assign cj to gj or gi? 
-# In any case, we are still ending up with one match.
-# Therefore, all we should consider is if there is another cookie
-# ci that could satisfy gi. If there is, we could have 2 matches.
-# If there isn't, then it doesn't matter if we assign cj to it.
+# If we choose to match gi with cj. We create (cj, gi)
+# for a confirmed +1 match.
 
-# Ok, so let's say we're at some gi.
-# If there is ci == gi, then we should assign ci to gi since
-# this is the most optimal cookie (best used here, since can't match higher
-# and not wasted to match lower).
-# If there is not ci == gi, we check ci+1.
-# If gi+1 exists, it doesn't make a difference if we match it with ci+1
-# since we are creating one match in either case.
-# If gi+1 doesn't exist, then this cookie must match downwards, and this
-# cookie would be symmetrical candidates as any of the smaller cookies,
-# creating a match.
+# If we choose (ci, gi), then we could potentially use cj
+# to match a bigger greed gj (potential (cj, gj), and we have
+# have potentially +2 matches.
+
+# Thus, (ci, gi) is the better match if both ci and cj exist.
+
+# 2. If only ci exists, then (ci, gi) obviously.
+
+# 3. If ci doesn't exist, then we could (cj, gi)
+# producing a confirmed +1 match or we could match cj with a 
+# potentially existing gj producing a potential +1 match.
+# Clearly (cj, gi) is the better match.
+
+# However, cj should be the next biggest cookie after ci to optimize
+# the outcome.
+
+# If cj was a bigger cookie but not the next (let's say cm is)
+# then matching cj to gi is not optimal.
+
+# Matching cj to gi: potentially +2
+# (cj, gi), possibly (cm, gm)
+
+# Matching cm to gi: confirmed +2
+# (cm, gi), (cj, gm) 
+
+# So, if ci doesn't exist, the best option is to match gi with
+# the next biggest cookie cj.
+
+
+# So, from the reasoning above, we can see that
+# If ci exists, match gi with ci.
+# If ci doesn't exist, match gi with cj (the next biggest cookie after ci).
+# In short, this sums to: the order of preference to match gi
+# is ci, ci+1, ci+2,.
+# The best option is the smallest viable that exists.
 
 # OPTIMAL SOLUTION:
-# Assuming k cookies
-# Assuming n kids/greed
-# Create a hashmap of (ci, num(ci)) for O(1) lookup (O(k))
-# for each children/greed O(n):
-#   all cookies assigned? stop. (keep a counter for optimized termination)
-#   find any match, starting from the optimal to the largest O(k/2) (on average half the cookies will be bigger)
+# We can go through g and find ci == gi and then, if necessary, ci, ci+1, ci+2...
+# Thus, we must find ci, ci+1,... in order and so this means
+# that s should be sorted so we can iterate ci+1, ci+2,...easily
+# since they are sequential to ci. Otherwisem we don't know if ci+1 exists
+# and must check all possibilities until we reach the next biggest cookie.
 
+# However, if we store it as an array, we will have difficulty
+# finding if ci exists in s (must iterate to find starting point).
+# However, if we sort g, then since every next gj is bigger than
+# gi, we just continue checking from the next unmatched cookie in s
+# since we know all smaller cookies are too small/already matched
+# so they cannot be valid candidates for gj. 
+# Thus, we can search for cj, cj+1,... etc. from (exclusive) the last
+# matched ci, since ci is matched and all smaller cookies are already matched/
+# too small for gi and gj >= gi and so those previous cookies cannot work.
+
+
+# We sort both g and s.
+# Find the first acceptable match for g0 (first acceptable is
+# the best match since it would be the smallest viable since s
+# is sorted i.e. c0, c1,...). Record this position ci.
+# g1 >= g0  and since none of the cookies smaller than ci worked
+# for g0, they won't work for g1 either. ci is already taken.
+# Start the search for the next viable option after ci.
+# Repeat and so on until we reach the end of s, in which
+# case no more cookeis may match the >= greeds.
 
 # ANALYSIS:
-# O(nk)
-
+# Assume n = max(len(g), len(s))
+# O(log(n) + n)
+# O(n)
 
 
 class Solution(object):
