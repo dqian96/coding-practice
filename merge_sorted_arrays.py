@@ -30,13 +30,17 @@ def testMerge():
     for i in range(0, k):
         size = random.randint(1, 40)
         arrayList.append(sorted([random.randint(-1000, 1000) for x in range(0, size)]))
+    ans = []
+    for array in arrayList:
+        ans.extend(array)
+    ans.sort()
     res = merge(arrayList)
-    if res == sorted(res):
+    if res == ans:
         return True
     return False
 
 if __name__ == "__main__":
-    for i in range(0, 500):
+    for i in range(0, 1000):
         if testMerge() == False:
             print False
             break
