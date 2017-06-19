@@ -12,10 +12,8 @@ class Solution(object):
     
     def binarySearch(self, array, inclusiveStart, exclusiveEnd, target):
         midpoint = (inclusiveStart + exclusiveEnd)/2
-        if inclusiveStart >= exclusiveEnd or array[midpoint] == target:
+        if inclusiveStart == exclusiveEnd or array[midpoint] == target:
             return midpoint
         if target < array[midpoint]:
             return self.binarySearch(array, inclusiveStart, midpoint, target)
         return self.binarySearch(array, midpoint + 1, exclusiveEnd, target)
-
-
