@@ -11,7 +11,7 @@ Date = namedtuple('Date', 'year month')
 DataPoint = namedtuple('DataPoint', 'date type occurences')
 
 def is_between_dates(inc_lower_bound, exc_upper_bound, date):
-    """Tests whether or not a certain date is in [lower_bound, upper_bound) """
+    """Tests whether or not a certain date is in [lower_bound, upper_bound)"""
     if inc_lower_bound.year == exc_upper_bound.year and \
         date.month >= inc_lower_bound.month and date.month < exc_upper_bound.month:
         return True

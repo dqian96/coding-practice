@@ -30,16 +30,12 @@ int maxLength(vector < int > a, int k) {
     if (a.size() == 0) {
         return 0;
     }
-
-    vector<int> culSum;
-    culSum.reserve(a.size());
-    culSum[0] = a[0];
-    for (int i = 1; i < a.size(); i++) {
-        culSum[i] = a[i] + culSum[i - 1];
-    }
     
     int lastSum = 0, lastLength = 0, maxLength = 0;
     for (int i = 0; i < a.size(); i++) {
+        // lastSum represents the sum of the longest subarray with sum <= k (valid) ending at index i
+        // lastLength represents the length of the longest valid subarray ending at index i
+        // maxLength is the length of the longest valid subarray found so far
         if (a[i] > k) {
             lastSum = 0;
             lastLength = 0;
@@ -49,13 +45,14 @@ int maxLength(vector < int > a, int k) {
             lastLength++;
             lastSum += a[i];
         } else {
+            lastSum = a[i];
+            lastLength = 1;
             int j = i - 1;
-            while (j > -1 && culSum[i] - culSum[j] <= k) {
-                j--;
+            while (j > -1 && lastSum + a[j] <= k) {
+                // search backwards to find the longest valid subarray ending at index i
+                lastSum += a[j--];
+                lastLength++;
             }
-            lastSum = culSum[i] - culSum[j + 1];
-            lastLength = i - j - 1;
-            cout << a[i] << " " << lastLength << endl;
         }
         maxLength = maxLength > lastLength ? maxLength : lastLength;
     }
