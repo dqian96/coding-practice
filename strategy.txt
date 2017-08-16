@@ -1,0 +1,146 @@
+Strategy to solve problems:
+
+1. Understand the question fully, and ask question to clarify
+
+2. Write out some example cases (i.e. input-output)
+
+3. Give a naive/trivial solution
+
+4. Describe why the naive solution is bad (time and space complexity)
+
+5. Try to come up with a better solution
+    a. Categorize the problem
+    b. Come up with a design strategy
+    c. Writing out examples (trying to identify input-output relationships)
+    d. Break the problem down into several cases
+    e. Find some way to model the problem (i.e. esp useful for graphs)
+    f. Decompose the problem (i.e. to solve x, I need y... to solve y, I need z...etc.)
+    g. Determine tautologies and patterns
+
+6. Write down the steps to the algorithm (i.e. first, second, third)
+
+7. Start coding and talk about your implementation
+
+8. Run through an example test case (trace through the program) to make sure it works
+
+9. Analyze your solution (time and sapce complexity)
+
+10. Check if it can be improved
+
+
+Problem Types:
+
+1. Bit Manipulation
+    a. Bit shifts
+    b. Boolean operators (AND, OR, XOR, etc.)
+    c. XOR (x ^ x = 0, 0 ^ x = x)
+
+2. Dynamic Programming
+    a. Optimization problems
+    b. Memoization (top-down)
+    c. DP (bottom-up)
+    d. Runtime is size of table (set of unique subproblems solved repeatedly)
+    e. Recurrence relation (the "last" problem)
+    f. Problem can be split up into several subproblems; can combine the subproblems' solutions to solve the main problem
+    g. Tautologies (i.e. the end of the longest palindromic substring must be at ONE of the string's characters)
+        i.e. what's the LPS that ends at index i, and how can I use that to solve the LPS for index i + 1
+
+3. Greedy Algorithms
+    a. Optimization problems
+    b. Heuristic
+    c. Short-sighted (local, not global, optimum)
+
+4. Backtracking
+    a. Constraint satisfaction problems
+    b. Incrementally builds candidates to solutions - abandon candidate (node/subtree) immediately when it is discovered that it cannot be valid
+
+5. Strings
+    a. Tries
+    b. Usually combined with another type of problem (i.e. DP, hash table)
+
+6. Math
+    a. Less programming
+    b. Equations
+    c. Patterns
+
+7. Array
+    a. Two pointers
+    b. Comapare and swap
+    c. The INDEX encodes information - it can be used to store/represent information
+        i.e. if i in A, then A[i] = i
+    d. Sorted arrays heavily imply binary search
+    e. Sorting is a common preprocessing step where order is not important
+    f. Sort to "group" together common elements
+    g. Easy to compare sorted arrays
+    h. Sorting introduces order and expectation
+
+8. Hash table
+    a. Commonly used with string and array questions
+    b. Fast lookup; good for "checking"
+    c. Common preprocessing step
+
+9. Stack/Queue
+    a. FIFO
+    b. LIFO
+    c. Parenthesis matching 
+
+10. Divide and Conquer
+    a. Uncommon
+    b. Recursive in nature (problems with recursive properties)
+    c. Divide problem into subproblems -> solve each subproblem recursively -> combine solutions to solve the problem
+
+10. Trees
+    a. DFS (stack, recursion-favored)
+    b. BFS (queue, iteration-favored)
+    c. DFS can become depth aware by keeping an extra variable in the recursion
+    d. No cycles
+
+11. Graph
+    a. Represents things (nodes) and relationships (edges)
+    b. DFS/BFS search algorithms
+    c. Set required to keep track of visited nodes
+    d. Have cycles
+    e. Topological Sort
+    f. Connected components
+        i.e. Friend Circles
+    g. One-way vs two-way edges
+    h. Adjacent list
+        Less space intensive at the cost of slower lookup
+        Good for sparse graphs
+    i. Adjacency matrix
+        Fast lookup at the expense of more space
+        Good for dense graphs
+    j. Important to model the question properly
+        Node values
+        Edge weights
+    k. Dijkstra's
+    l. Minimum Spanning Tree
+
+
+Strategies:
+
+1. Brute Force
+    a. Enumerate all possibilities
+    b. Better than nothing
+    c. Start with this - can help with finding better solutions
+
+2. Pre-structuring
+
+3. Divide and Conquer
+
+4. Decrease and Conquer
+
+5. Transform and Conquer
+
+6. Input Enhancement
+
+7. Dynamic Programming
+
+8. Greedy
+
+9. Backtracking
+
+10. Non-deterministic methods
+
+// helpful: http://i.imgur.com/JbVwvxo.jpg
+
