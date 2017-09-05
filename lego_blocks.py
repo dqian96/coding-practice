@@ -33,7 +33,31 @@ Modulo the total number by 1,000,000,007.
 1 <= T <= 100
 1 <= N, M <= 1000
 
-Solution: Use DP
+Solution:
+
+Use DP based on the following equations:
+
+#walls_with_no_seams_m_n = #total_walls_m_n - #walls_with_seams_m_n
+
+#total_walls = #ways_to_layer_m^n
+
+#ways_to_layer_m = #ways_to_layer_m-1 + #ways_to_layer_m-2 + #ways_to_layer_m-3 + #ways_to_layer_m-4
+
+Based on the idea that the first block in the layer is either a 1-block, 2-block, 3-block, or 4-block,
+and so, we just sum the # ways to layer the rest after the first block (recurrence)
+
+#walls_with_seams_m_n = sum i from 1 to m-1 (#walls_with_no_seams_i_n * #total_walls_m-i_n)
+
+Based on the idea that in a wall with seams, the first seam can either be after the first unit,
+second unit,...,m-1 unit. If the first seam is at i, then the "first" ixn wall will have no seams,
+and the "second" m-ixn wall can have or not have seams. Multiply the two by each other to get
+the total number of walls with seams if the first seam is at i. Then sum all of the possible
+seam locations up to get the total number of mxn walls with seams.
+
+The solution implemented here is correct...but is not time nor space efficient.
+Instead of using recursion + memoization, it would be a lot more efficient to
+use DP tables.
+
 """
 
 from sys import stdin
