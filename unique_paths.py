@@ -4,16 +4,13 @@
 from collections import defaultdict
 
 class Solution(object):
-    def dp(self, x, y, m, n, mem):
-        if (x, y) in mem:
-            return mem[(x, y)]
-        if x >= m or y >= n:
-            return 0
-        mem[(x, y)] = self.dp(x + 1, y, m, n, mem) + self.dp(x, y + 1, m, n, mem)
-        return mem[(x, y)]
-    
     def uniquePaths(self, m, n):
-        mem = defaultdict(int)
-        mem[(m - 1, n - 1)] = 1
-        return self.dp(0, 0, m, n, mem)
+        table = [[0 for i in range(m)] for j in range(n)]
+        table[-1][-1] = 1
+        for y in range(n - 1, -1, -1):
+            for x in range(m - 1, -1, -1):
+                if x == m - 1 and y == n - 1:
+                    continue
+                table[y][x] = (0 if y + 1 >= n else table[y + 1][x]) + (0 if x + 1 >= m else table[y][x + 1])
+        return table[0][0]
     

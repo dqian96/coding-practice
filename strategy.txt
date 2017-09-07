@@ -11,7 +11,7 @@ Strategy to solve problems:
 5. Try to come up with a better solution
     a. Categorize the problem
     b. Come up with a design strategy
-    c. Writing out examples (trying to identify input-output relationships)
+    c. Write out examples (trying to identify input-output relationships)
     d. Break the problem down into several cases
     e. Find some way to model the problem (i.e. esp useful for graphs)
     f. Decompose the problem (i.e. to solve x, I need y... to solve y, I need z...etc.)
@@ -34,6 +34,7 @@ Problem Types:
     a. Bit shifts
     b. Boolean operators (AND, OR, XOR, etc.)
     c. XOR (x ^ x = 0, 0 ^ x = x)
+    d. Tries, as a binary number is just a string of 1's and 0's
 
 2. Dynamic Programming
     a. Optimization problems
@@ -56,7 +57,8 @@ Problem Types:
 
 5. Strings
     a. Tries
-    b. Usually combined with another type of problem (i.e. DP, hash table)
+    b. Suffix Trees (allows us to solve longest common substring in O(n))
+    c. Usually combined with another type of problem (i.e. DP, hash table)
 
 6. Math
     a. Less programming
@@ -125,22 +127,31 @@ Strategies:
     c. Start with this - can help with finding better solutions
 
 2. Pre-structuring
+    a. Pre-arrange data for faster processing
+    b. Sorting when order doesn't matter
 
-3. Divide and Conquer
+3. Problem Reduction/Transformation
+    a. Transform/reduce the problem to another
+    b. i.e. if problem A reduces to B, then the solution to B can be used to solve A
+    b. i.e. Decision and optimizaiton problems
 
-4. Decrease and Conquer
+4. Input Enhancement
+    a. Pre-calculate results for certain inputs or cache partial results, so the actual run is faster
+    b. A hash map is a good data structure to cache results
+    c. Multiple passes as an alternative to a worse run-time
 
-5. Transform and Conquer
+5. Non-deterministic methods
+    a. Las Vegas
+        i. Generate possible solutions non-deterministically
+        ii. Produces correct answer
+        iii. No gurantees in space and time complexity
+    b. Monte Carlo
+        i. Generate possible solutions non-deterministically
+        ii. Has time and space gurantees
+        iii. Small probability of giving the wrong answer
+        iv. Run longer -> probability of wrong answer reduced
+    c. Hill Climbing
+        i. Solve (possibly approximately) optimization problems
+        ii. Generate candidate solutions that are improvements over the previous candidate
 
-6. Input Enhancement
-
-7. Dynamic Programming
-
-8. Greedy
-
-9. Backtracking
-
-10. Non-deterministic methods
-
-// helpful: http://i.imgur.com/JbVwvxo.jpg
-
+// source: http://i.imgur.com/JbVwvxo.jpg
