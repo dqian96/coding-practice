@@ -52,13 +52,22 @@ Problem Types:
     c. Short-sighted (local, not global, optimum)
 
 4. Backtracking
-    a. Constraint satisfaction problems
+    a. Constraint satisfaction problems (i.e. combination sum)
     b. Incrementally builds candidates to solutions - abandon candidate (node/subtree) immediately when it is discovered that it cannot be valid
+    c. Build candidates on edges (each node has one edge for each possible "choice")
+    d. Evaluation of state of solution on nodes
+    e. i.e. combination sum using [1,3], target = 2
+                ---s=0----
+               / (1)  (3) \
+              s=1       s=3(STOP)
+             /(1)
+        s=2 (SOLN & STOP) 
 
 5. Strings
     a. Tries
     b. Suffix Trees (allows us to solve longest common substring in O(n))
     c. Usually combined with another type of problem (i.e. DP, hash table)
+    d. Sliding windows
 
 6. Math
     a. Less programming
@@ -75,6 +84,7 @@ Problem Types:
     f. Sort to "group" together common elements
     g. Easy to compare sorted arrays
     h. Sorting introduces order and expectation
+    i. Sliding window
 
 8. Hash table
     a. Commonly used with string and array questions
