@@ -85,6 +85,7 @@ Problem Types:
     g. Easy to compare sorted arrays
     h. Sorting introduces order and expectation
     i. Sliding window
+    j. Bucket sort
 
 8. Hash table
     a. Commonly used with string and array questions
