@@ -1,8 +1,33 @@
+Interview soft skills:
+
+1. Think out loud
+    a. Pretend that you are not talking to someone, but rather that you're talking to yourself
+    b. Say every thought you have in your mind, no matter what
+
+2. Take your time
+    a. There's is no need to rush
+    b. A metholodical, detailed thought process is better than half-assing it
+
+3. Keep calm and be confident
+    a. You can do it
+    b. Calm yourself down by taking a deep breath before your interview
+    c. Pep talk yourself
+    d. It's not the end of the world if you don't get it
+
+4. Ask questions
+    a. Ask to confirm your ideas
+    b. Ask clarification questions
+    c. Ask for hints, and pay attention to the hints!
+    
+
 Strategy to solve problems:
 
 1. Understand the question fully, and ask question to clarify
+    a. Write down input & output
+    b. Write down the important details of the question
 
 2. Write out some example cases (i.e. input-output)
+    a. Try to find patterns
 
 3. Give a naive/trivial solution
 
@@ -11,19 +36,37 @@ Strategy to solve problems:
 5. Try to come up with a better solution
     a. Categorize the problem
     b. Come up with a design strategy
-    c. Write out examples (trying to identify input-output relationships)
+    c. Write out examples and try to find patterns
     d. Break the problem down into several cases
     e. Find some way to model the problem (i.e. esp useful for graphs)
     f. Decompose the problem (i.e. to solve x, I need y... to solve y, I need z...etc.)
     g. Determine tautologies and patterns
+    h. Determine how the naive solution can be improved (i.e. caching, preventing duplicate work)
 
 6. Write down the steps to the algorithm (i.e. first, second, third)
+    a. Like actually write it down
+    b. Use precise names to describe some variable/state/system/value/point of interest, as names
+       give something power
 
 7. Start coding and talk about your implementation
-
+    a. Use clear and understandable variable names
+    b. Stub methods (top-down programming) in order to get the high level flow down first
+    c. Comment and chunk code (i.e. add new lines between logically seperate blocks)
+    d. Practice modularity by using helper methods generously
+        i. This allows you to update/improve implementation of components without affecting the
+           rest of the code (constant interface)
+        ii. Unit test individual components to reduce difficulty in debugging 
+    e. Adhere to agile methodology - develop iteratively
+        i. Premature optimization is the root of all evil
+        ii. You can implement a trivial algorithm to start, and iteratively improve on it later
+        iii. Assuming your implementation is modular, iteratively updating/improving your code
+             should be trivial (little code to change)
+        iv. A solution is better than no solution
+        
 8. Run through an example test case (trace through the program) to make sure it works
+    i. Do this before actually running the code
 
-9. Analyze your solution (time and sapce complexity)
+9. Analyze your solution (time and space complexity)
 
 10. Check if it can be improved
 
