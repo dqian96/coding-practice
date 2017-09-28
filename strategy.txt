@@ -18,7 +18,7 @@ Interview soft skills:
     a. Ask to confirm your ideas
     b. Ask clarification questions
     c. Ask for hints, and pay attention to the hints!
-    
+
 
 Strategy to solve problems:
 
@@ -42,6 +42,7 @@ Strategy to solve problems:
     f. Decompose the problem (i.e. to solve x, I need y... to solve y, I need z...etc.)
     g. Determine tautologies and patterns
     h. Determine how the naive solution can be improved (i.e. caching, preventing duplicate work)
+    i. Discuss tradeoffs
 
 6. Write down the steps to the algorithm (i.e. first, second, third)
     a. Like actually write it down
@@ -69,6 +70,7 @@ Strategy to solve problems:
 9. Analyze your solution (time and space complexity)
 
 10. Check if it can be improved
+    a. Discuss tradeoffs (i.e. time v.s. space)
 
 
 Problem Types:
@@ -138,7 +140,8 @@ Problem Types:
 9. Stack/Queue
     a. FIFO
     b. LIFO
-    c. Parenthesis matching 
+    c. Parenthesis matching
+    d. Nested structures (i.e mathematical expressions)
 
 10. Divide and Conquer
     a. Uncommon
