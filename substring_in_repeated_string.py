@@ -1,4 +1,5 @@
-# Problem: Substring in a Repeated String
+# Problem: Repeated String Match
+# (https://leetcode.com/problems/repeated-string-match/description/)
 
 """
 
@@ -18,35 +19,37 @@ from said character to see if you can match until B's end, incrementing a counte
 you start from A's first character again.
 
 """
-def match(A, B, i):
-    # try to see if you can match A[i:] + A + A + ... with B
-    num_times_replicated = 1
-    p0 = i
-    p1 = 0
 
-    while 1:
-        if p1 >= len(B):
-            # all of B replicated
-            return num_times_replicated
+class Solution(object):
+    def match(self, A, B, i):
+        # try to see if you can match A[i:] + A + A + ... with B
+        num_times_replicated = 1
+        p0 = i
+        p1 = 0
 
-        if p0 >= len(A):
-            # repeat A again
-            p0 = 0
-            num_times_replicated += 1
-        
-        if A[p0] != B[p1]:
-            # not proper match
-            return float("inf")
+        while 1:
+            if p1 >= len(B):
+                # all of B replicated
+                return num_times_replicated
 
-        p0 += 1
-        p1 += 1
+            if p0 >= len(A):
+                # repeat A again
+                p0 = 0
+                num_times_replicated += 1
+            
+            if A[p0] != B[p1]:
+                # not proper match
+                return float("inf")
 
-def solution(A, B):
-    min_times_replication = float("inf")        # default value for improper match
+            p0 += 1
+            p1 += 1
 
-    for i in range(len(A)):
-        # iterate through A to find first candidate match
-        if B[0] == A[i]:
-            min_times_replication = min(min_times_replication, match(A, B, i))
+    def repeatedStringMatch(self, A, B):
+        min_times_replication = float("inf")        # default value for improper match
 
-    return -1 if min_times_replication == float("inf") else min_times_replication
+        for i in range(len(A)):
+            # iterate through A to find first candidate match
+            if B[0] == A[i]:
+                min_times_replication = min(min_times_replication, self.match(A, B, i))
+
+        return -1 if min_times_replication == float("inf") else min_times_replication

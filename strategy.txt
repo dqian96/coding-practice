@@ -118,6 +118,11 @@ Problem Types:
     a. Less programming
     b. Equations
     c. Patterns
+    d. Unique factorization theorem
+        i. All numbers > 1 are either prime or composite
+        ii. If a number is composite, then it is the product of prime numbers
+        iii. Furthermore, the prime factorization for each composite number is unique
+        iv. This also implies that the product of a set of prime numbers is unique
 
 7. Array
     a. Two pointers
@@ -153,6 +158,7 @@ Problem Types:
     b. BFS (queue, iteration-favored)
     c. DFS can become depth aware by keeping an extra variable in the recursion
     d. No cycles
+    e. Shortest path -> BFS
 
 11. Graph
     a. Represents things (nodes) and relationships (edges)
@@ -172,7 +178,7 @@ Problem Types:
     j. Important to model the question properly
         Node values
         Edge weights
-    k. Dijkstra's
+    k. Shortest path -> Dijkstra's or BFS
     l. Minimum Spanning Tree
 
 
