@@ -12,21 +12,21 @@ class Solution(object):
         if (row, col) in used:
             # already used letter
             return False
-        
+
         if (board[row][col] == target[curr]):
             used.add((row, col))        # add to used
             down = self.backtrack(board, row + 1, col, used, target, curr + 1)
             up = self.backtrack(board, row - 1, col, used, target, curr + 1)
             left = self.backtrack(board, row, col - 1, used, target, curr + 1)
             right = self.backtrack(board, row, col + 1, used, target, curr + 1)
-            
+
             validSoln = down or up or left or right         # valid soln
             if validSoln:
                 return True
             used.remove((row, col))     # not used anymore
-        
+
         return False            # curr pos not matching or all future moves invalid
-        
+
     def exist(self, board, word):
         """
         :type board: List[List[str]]
@@ -39,4 +39,4 @@ class Solution(object):
                 if self.backtrack(board, i, j, s, word, 0):
                     return True
         return False
-        
+
