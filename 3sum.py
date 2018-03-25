@@ -8,7 +8,7 @@
 # I will present two solutions.
 # The first solution is to iterate through S, for possible values of a
 # (i.e. for a in S) or in other words, "fix a" and try to find
-# b and c satsifying a + b + c. 
+# b and c satsifying a + b + c.
 # If a = si, then try to find matching b and c in [si+1,...,sn-1].
 # How do we find these b's and c's? We can do this using two nested
 # for loops or in another way... We make a hash table of
@@ -32,7 +32,7 @@
 # in Ss = [si+1,...,sn-1]. Essentially, this problem reduces
 # down to finding a two sum/pair b + c = -a in the sorted subarray
 # Ss. Ok, now we will use a two pointers approach.
-# Let p1 (symbolizing b) and p2 (symbolizing c) point to si+1 and 
+# Let p1 (symbolizing b) and p2 (symbolizing c) point to si+1 and
 # sn-1 respectively. If p1 + p2 > -a (i.e. invalid b and c), then
 # we decrement p2. Since the array is SORTED left to right, this p2
 # will be smaller than the previous, and so the p1 + p2 should be smaller.
@@ -51,7 +51,7 @@
 # We decrement p2 since p1 is now bigger so the previous
 # p1 + p2 = -a will not work.
 
-# If p1 + p2 < -a, we cannot find valid b and c. We do the same thing as above, 
+# If p1 + p2 < -a, we cannot find valid b and c. We do the same thing as above,
 # except we do not decrement p2 at the end, since it might be valid
 # for a bigger p1.
 
@@ -79,10 +79,10 @@
 # we are incrementing p1 until it is different. Therefore, as b1 != b0,
 # and a  is fixed, c1 != c0 and it is different. So the inner loop
 # cannot produce any repeated triplets.
-# Now let's look at the outer loop. Similarly, if if two a's 
+# Now let's look at the outer loop. Similarly, if if two a's
 # are the same, consecutively, we increment a further and ignore it.
 # Ignoring it is fine, as all solutions with that a were already found.
-# Now what if we arrive at an a that was a previous b. Well since, 
+# Now what if we arrive at an a that was a previous b. Well since,
 # this a must be larger than the last a's, then the a0 in the previous
 # triplet cannot be in the new one and we cannot have a duplicate.
 

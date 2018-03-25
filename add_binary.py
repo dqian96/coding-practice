@@ -3,11 +3,6 @@
 
 class Solution(object):
     def addBinary(self, a, b):
-        """
-        :type a: str
-        :type b: str
-        :rtype: str
-        """
         res = [''] * (max(len(a), len(b)) + 1)      # for possible extra carry
         carry = 0
         p1 = len(a) - 1
@@ -40,4 +35,4 @@ class Solution(object):
         if carry == 1:
             res[0] = "1"
         return ''.join(res)
-        
+
