@@ -1,100 +1,118 @@
-Interview soft skills:
+# How to Kick Ass in Interviews
+
+## Interview soft skills:
 
 1. Think out loud
-    a. Pretend that you are not talking to someone, but rather that you're talking to yourself
-    b. Say every thought you have in your mind, no matter what
+    * Pretend that you are not talking to someone, but rather that you're talking to yourself
+    * Say every thought you have in your mind, no matter what
 
 2. Take your time
-    a. There's is no need to rush
-    b. A metholodical, detailed thought process is better than half-assing it
+    * **There's no need to rush**
+    * A metholodical, detailed thought process is better than half-assing it
 
 3. Keep calm and be confident
-    a. You can do it
-    b. Calm yourself down by taking a deep breath before your interview
-    c. Pep talk yourself
-    d. It's not the end of the world if you don't get it
+    * **You can do it**
+    * Calm yourself down by taking a deep breath before your interview
+    * Pep talk yourself
+    * It's not the end of the world if you don't get it
 
 4. Ask questions
-    a. Ask to confirm your ideas
-    b. Ask clarification questions
-    c. Ask for hints, and pay attention to the hints!
+    * **Ask to confirm your ideas**
+    * Ask clarification questions
+    * Ask for hints, and pay attention to the hints!
 
+5. Don't hesitate to back-track
+    * If you get stuck for a few minutes, it's time to **back-track**!
+    * Do not **tunnel-vision**. Try to look for different methods and missed details.
 
-Strategy to solve problems:
+## Strategy to solve problems:
 
-1. Understand the question fully, and ask question to clarify
-    a. Write down input & output
-    b. Write down the important details of the question
+1. Understand the question fully, and ask questions to clarify
+    * Write down input & output
+    * Write down the important details of the question
+    * **Read the question thoroughly**
 
 2. Write out some example cases (i.e. input-output)
-    a. Try to find patterns
+    * Try to find patterns
 
 3. Give a naive/trivial solution
 
-4. Describe why the naive solution is bad (time and space complexity)
+4. Describe why the naive solution is bad
+    * Space/time complexity
+    * Redundant computation
+    * Doesn't take advantage of pre-existing patterns (i.e array is sorted)
 
-5. Try to come up with a better solution
-    a. Categorize the problem
-    b. Come up with a design strategy
-    c. Write out examples and try to find patterns
-    d. Break the problem down into several cases
-    e. Find some way to model the problem (i.e. esp useful for graphs)
-    f. Decompose the problem (i.e. to solve x, I need y... to solve y, I need z...etc.)
-    g. Determine tautologies and patterns
-    h. Determine how the naive solution can be improved (i.e. caching, preventing duplicate work)
-    i. Discuss tradeoffs
+5. Try to come up with a better solution (problem solving and communication skills)
+    * Categorize the problem (i.e. graph)
+    * Come up with a design strategy (i.e. DFS)
+    * Write out examples and try to find patterns
+    * Break the problem down into several cases
+        * Base case
+        * Edge case
+        * Normal case
+    * Find some way to model the problem (i.e. esp useful for graphs)
+    * Decompose the problem (i.e. to solve x, I need y... to solve y, I need z...etc.)
+        * Break the problem down to get mini-objectives
+        * Find solutions to mini-objectives
+        * Combine solutions
+    * Determine tautologies and patterns
+    * Determine how the naive solution can be improved (i.e. caching, preventing duplicate work)
+    * Discuss tradeoffs
 
 6. Write down the steps to the algorithm (i.e. first, second, third)
-    a. Like actually write it down
-    b. Use precise names to describe some variable/state/system/value/point of interest, as names
+    * Like actually write it down
+    * Use precise names to describe some variable/state/system/value/point of interest, as names
        give something power
+    * **Completely run through examples and be explicit about the details of your algo**
+    * Ask if your solution makes sense
 
-7. Start coding and talk about your implementation
-    a. Use clear and understandable variable names
-    b. Stub methods (top-down programming) in order to get the high level flow down first
-    c. Comment and chunk code (i.e. add new lines between logically seperate blocks)
-    d. Practice modularity by using helper methods generously
-        i. This allows you to update/improve implementation of components without affecting the
+7. Start coding and talk about your implementation (highlight software engineering practices)
+    * Use clear and understandable variable names
+    * Stub methods (top-down programming) in order to get the high level flow down first
+    * Comment and chunk code (i.e. add new lines between logically seperate blocks)
+    * Practice modularity by using helper methods generously
+        * This allows you to update/improve implementation of components without affecting the
            rest of the code (constant interface)
-        ii. Unit test individual components to reduce difficulty in debugging 
-    e. Adhere to agile methodology - develop iteratively
-        i. Premature optimization is the root of all evil
-        ii. You can implement a trivial algorithm to start, and iteratively improve on it later
-        iii. Assuming your implementation is modular, iteratively updating/improving your code
-             should be trivial (little code to change)
-        iv. A solution is better than no solution
+        * **Unit test individual components** to reduce difficulty in debugging 
+    * Adhere to agile methodology - develop iteratively
+        * **Premature optimization is the root of all evil**
+        * You can implement a trivial algorithm to start, and iteratively improve on it later
+        * Assuming your implementation is modular, iteratively improving your code should be trivial (little code to change)
+        * A solution is better than no solution
         
 8. Run through an example test case (trace through the program) to make sure it works
-    i. Do this before actually running the code
+    * Do this before actually running the code
+    * Completely run through the example
+    * Don't forget edge cases
 
 9. Analyze your solution (time and space complexity)
 
 10. Check if it can be improved
-    a. Discuss tradeoffs (i.e. time v.s. space)
+    * Discuss tradeoffs (i.e. time v.s. space)
 
 
 Problem Types:
 
 1. Bit Manipulation
-    a. Bit shifts
-    b. Boolean operators (AND, OR, XOR, etc.)
-    c. XOR (x ^ x = 0, 0 ^ x = x)
-    d. Tries, as a binary number is just a string of 1's and 0's
+    * Bit shifts
+    * Boolean operators (AND, OR, XOR, etc.)
+    * XOR (x ^ x = 0, 0 ^ x = x)
+    * Tries, as a binary number is just a string of 1's and 0's
 
 2. Dynamic Programming
-    a. Optimization problems
-    b. Memoization (top-down)
-    c. DP (bottom-up)
-    d. Runtime is size of table (set of unique subproblems solved repeatedly)
-    e. Recurrence relation (the "last" problem)
-    f. Problem can be split up into several subproblems; can combine the subproblems' solutions to solve the main problem
-    g. Tautologies (i.e. the end of the longest palindromic substring must be at ONE of the string's characters)
+    * Optimization problems
+    * Memoization (top-down)
+    * DP (bottom-up)
+    * Runtime is size of table (set of unique subproblems solved repeatedly)
+    * Recurrence relation (the "last" problem)
+    * Problem can be split up into several subproblems; can combine the subproblems' solutions to solve the main problem
+    * Tautologies (i.e. the end of the longest palindromic substring must be at ONE of the string's characters)
         i.e. what's the LPS that ends at index i, and how can I use that to solve the LPS for index i + 1
 
 3. Greedy Algorithms
-    a. Optimization problems
-    b. Heuristic
-    c. Short-sighted (local, not global, optimum)
+    * Optimization problems
+    * Heuristic
+    * Short-sighted (local, not global, optimum)
 
 4. Backtracking
     a. Constraint satisfaction problems (i.e. combination sum)
