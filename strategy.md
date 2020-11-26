@@ -16,6 +16,7 @@
     * Calm yourself down by taking a deep breath before your interview
     * Pep talk yourself
     * It's not the end of the world if you don't get it
+    * Be tenacious
 
 4. Ask questions
     * **Ask to confirm your ideas - bounce them**
@@ -32,6 +33,7 @@
     * Write down input & output
     * Write down the important details of the question
     * **Read the question thoroughly**
+    * Discuss uncertainties
 
 2. Write out some example cases (i.e. input-output)
     * Try to find patterns
@@ -58,7 +60,7 @@
         * Combine solutions
     * Determine tautologies and patterns
     * Determine how the naive solution can be improved (i.e. caching, preventing duplicate work)
-    * Discuss tradeoffs
+    * Discuss tradeoffs, uncertainties, access patterns
 
 6. Write down the steps to the algorithm (i.e. first, second, third)
     * Like actually write it down
