@@ -9,6 +9,7 @@
 2. Take your time
     * **There's no need to rush**
     * A metholodical, detailed thought process is better than half-assing it
+    * But don't spend too much time on unnecessary explanations; be aware of your time budget
 
 3. Keep calm and be confident
     * **You can do it**
@@ -17,7 +18,7 @@
     * It's not the end of the world if you don't get it
 
 4. Ask questions
-    * **Ask to confirm your ideas**
+    * **Ask to confirm your ideas - bounce them**
     * Ask clarification questions
     * Ask for hints, and pay attention to the hints!
 
@@ -108,6 +109,7 @@ Problem Types:
     * Problem can be split up into several subproblems; can combine the subproblems' solutions to solve the main problem
     * Tautologies (i.e. the end of the longest palindromic substring must be at ONE of the string's characters)
         i.e. what's the LPS that ends at index i, and how can I use that to solve the LPS for index i + 1
+        i.e. 'last' analysis; the last partition/jump/etc. can only be one of the following choices
 
 3. Greedy Algorithms
     * Optimization problems
@@ -198,6 +200,9 @@ Problem Types:
         Edge weights
     k. Shortest path -> Dijkstra's or BFS
     l. Minimum Spanning Tree
+    
+12. Heap
+    a. Useful for keeping track of the largest/smallest element in a data structure
 
 
 Strategies:
